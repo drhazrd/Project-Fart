@@ -8,7 +8,7 @@ public class DoorSwitch : MonoBehaviour
     Animator anim;
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" ||other.tag == "Car")
         {
             //instructorText.gameObject.SetActive(true);
             anim = GetComponent<Animator>();
