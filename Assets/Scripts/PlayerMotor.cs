@@ -13,6 +13,7 @@ public class PlayerMotor : MonoBehaviour
     public float jumpHeight = 2.0f;
     private bool grounded = false;
     public bool useController;
+    public int playerNumber;
 
 
 
@@ -27,10 +28,10 @@ public class PlayerMotor : MonoBehaviour
         if (grounded)
         {
             // Calculate how fast we should be moving
-           Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-           //Vector3 targetVelocity = new Vector3(Input.GetAxis("ControllerMotor1H"), 0, Input.GetAxis("ControllerMotor1V"));
-           targetVelocity = transform.TransformDirection(targetVelocity);
-           targetVelocity *= speed;
+            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            targetVelocity = new Vector3(Input.GetAxis("ControllerMotor" + playerNumber + "H"), 0, Input.GetAxis("ControllerMotor" + playerNumber + "V"));
+            targetVelocity = transform.TransformDirection(targetVelocity);
+            targetVelocity *= speed;
                 
             // Apply a force that attempts to reach our target velocity
             Vector3 velocity = GetComponent<Rigidbody>().velocity;

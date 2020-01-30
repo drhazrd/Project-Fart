@@ -5,27 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class GameType : MonoBehaviour
 {
-    GameManager gmInfo;
+    //GameManager gmInfo;
     public bool gtInfected, gtDeathmatch, gtArcade;
     public float _inGameTimer;
     // Start is called before the first frame update
     void Start()
     {
-        gmInfo = GetComponent<GameManager>();
+        //gmInfo = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gmInfo.gtInfected) 
+        if (gtInfected) 
         {
             StartInfection();
         }
-        else if (gmInfo.gtDeathmatch)
+        else if (gtDeathmatch)
         {
             StartDeathMatch();
         }
-        else if (gmInfo.gtArcade) 
+        else if (gtArcade) 
         {
             StartArcade();
         }

@@ -12,7 +12,7 @@ public class DoorSwitch : MonoBehaviour
         {
             //instructorText.gameObject.SetActive(true);
             anim = GetComponent<Animator>();
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E)||Input.GetButtonDown("Submit1"))
             {
 
                 anim.SetTrigger("OpenClose");
