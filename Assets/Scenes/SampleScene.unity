@@ -13271,6 +13271,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6958939371915327905, guid: 79c99412acb57304f8a8e4f71103059c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13356,26 +13376,6 @@ PrefabInstance:
       propertyPath: grenadesText
       value: 
       objectReference: {fileID: 1183710416}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 6958939373253971453, guid: 79c99412acb57304f8a8e4f71103059c,
         type: 3}
       propertyPath: playerNum
@@ -13411,6 +13411,11 @@ PrefabInstance:
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 355774227}
+    - target: {fileID: 6958939371803275909, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 100008, guid: 7b346dd5b9c872e4f811ddc8000908a1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79c99412acb57304f8a8e4f71103059c, type: 3}
 --- !u!1001 &1592445725389537853
@@ -13515,6 +13520,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6958939371915327905, guid: 79c99412acb57304f8a8e4f71103059c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13600,21 +13620,6 @@ PrefabInstance:
       propertyPath: grenadesText
       value: 
       objectReference: {fileID: 1183710416}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6958939373253971453, guid: 79c99412acb57304f8a8e4f71103059c,
         type: 3}
       propertyPath: Player1
