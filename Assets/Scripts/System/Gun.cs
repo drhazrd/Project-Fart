@@ -8,6 +8,6 @@ public class Gun : MonoBehaviour
     public float gunRange;
     public float impactForce;
     public float fireRate;
-    public ParticleSystem muzzleFlash;
+    public GameObject muzzleFlash;
     public GameObject impactFX;
 }

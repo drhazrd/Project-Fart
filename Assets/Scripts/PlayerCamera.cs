@@ -12,11 +12,20 @@ public class PlayerCamera : MonoBehaviour
     public bool Player1, Player2, Player3, Player4;
     float camMoveX;
     float camMoveY;
-    int playerNum = 1;
+    public int playerNum = 1;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (Player1)
+            playerNum = 1;
+        if (Player2)
+            playerNum = 2;
+        if (Player3)
+            playerNum = 3;
+        if (Player4)
+            playerNum = 4;
 
     }
 

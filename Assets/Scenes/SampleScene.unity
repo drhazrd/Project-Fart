@@ -284,6 +284,25 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &46009599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6958939371915327916, guid: 79c99412acb57304f8a8e4f71103059c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2038498050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &46009607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46009599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f678e1a249b364f81f78e9eefc68d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5000
 --- !u!1 &85867778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1257,12 @@ PrefabInstance:
       objectReference: {fileID: 349630623}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 584217bc76b36c248adf5d77d4a0cbea, type: 3}
+--- !u!20 &355774227 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6958939373253971451, guid: 79c99412acb57304f8a8e4f71103059c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2038498050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &356286561
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,6 +5007,25 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1230985508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6958939371915327916, guid: 79c99412acb57304f8a8e4f71103059c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6958939372865544328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1230985516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230985508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f678e1a249b364f81f78e9eefc68d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5000
 --- !u!4 &1245981766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1592445725813266235, guid: 584217bc76b36c248adf5d77d4a0cbea,
@@ -13332,6 +13376,41 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971453, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: playerNum
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971453, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: Player1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971453, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: Player2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939371803275909, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: gunRange
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939371803275909, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: impactForce
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939371803275909, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: fireRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939371803275909, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 355774227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79c99412acb57304f8a8e4f71103059c, type: 3}
 --- !u!1001 &1592445725389537853
@@ -13536,6 +13615,16 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6958939373253971453, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: Player1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958939371803275909, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79c99412acb57304f8a8e4f71103059c, type: 3}
 --- !u!1001 &7048108406375315515
