@@ -10,4 +10,7 @@ public class Gun : MonoBehaviour
     public float fireRate;
     public GameObject muzzleFlash;
     public GameObject impactFX;
+    public int maxAmmo;
+    public int currAmmo;
+    public float reloadTime = 1f;
 }
