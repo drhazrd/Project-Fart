@@ -6,11 +6,18 @@ public class Gun1 : Gun
 {
     public Camera fpsCam;
     PlayerMotor pMotor;
+<<<<<<< HEAD
     private float nextTimeToFire = 0;
+=======
+    public int maxAmmo;
+    public int currAmmo;
+    private float nextTimeToFire;
+>>>>>>> c5cc1d1a613261b6ab30894cf94bfd18390ea3bf
     // Update is called once per frame
     void Start()
     {
         pMotor = GetComponentInParent<PlayerMotor>();
+        currAmmo = maxAmmo;
     }
     void Update()
     {
