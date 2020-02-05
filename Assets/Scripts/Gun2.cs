@@ -5,11 +5,16 @@ using UnityEngine;
 public class Gun2 : Gun
 {
     public Camera fpsCam;
-    private float nextTimeToFire;
+    PlayerMotor pMotor;
+    private float nextTimeToFire = 0;
     // Update is called once per frame
+    void Start()
+    {
+        pMotor = GetComponentInParent<PlayerMotor>();
+    }
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if ((Input.GetAxis("Fire1" + pMotor.playerNumber) > 0.1f) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Debug.Log("Bullet, Bullet, Bullet!");

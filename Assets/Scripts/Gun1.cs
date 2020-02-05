@@ -6,7 +6,7 @@ public class Gun1 : Gun
 {
     public Camera fpsCam;
     PlayerMotor pMotor;
-    private float nextTimeToFire;
+    private float nextTimeToFire = 0;
     // Update is called once per frame
     void Start()
     {

@@ -42,7 +42,7 @@ public class PlayerMotor : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
             // Jump
-            if (canJump && Input.GetButton("Jump"))
+            if (canJump && Input.GetButton("Jump"+playerNumber))
             {
                 GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
             }
