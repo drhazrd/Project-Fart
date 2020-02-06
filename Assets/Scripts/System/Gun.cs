@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     public float gunRange;
     public float impactForce;
     public float fireRate;
-    public GameObject muzzleFlash;
+    public ParticleSystem muzzleFlash;
     public GameObject impactFX;
     public float reloadTime = 1f;
 }

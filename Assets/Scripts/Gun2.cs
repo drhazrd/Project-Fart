@@ -6,11 +6,11 @@ public class Gun2 : Gun
 {
     public Camera fpsCam;
     PlayerMotor pMotor;
-<<<<<<< HEAD
+
     private float nextTimeToFire = 0;
-=======
-    private float nextTimeToFire;
->>>>>>> c5cc1d1a613261b6ab30894cf94bfd18390ea3bf
+
+    //private float nextTimeToFire;
+
     // Update is called once per frame
     void Start()
     {
@@ -18,12 +18,11 @@ public class Gun2 : Gun
     }
     void Update()
     {
-<<<<<<< HEAD
+
         if ((Input.GetAxis("Fire1" + pMotor.playerNumber) > 0.1f) && Time.time >= nextTimeToFire)
-=======
+
         if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire)
->>>>>>> c5cc1d1a613261b6ab30894cf94bfd18390ea3bf
-        {
+{
             nextTimeToFire = Time.time + 1f / fireRate;
             Debug.Log("Bullet, Bullet, Bullet!");
             Shoot();
@@ -31,7 +30,7 @@ public class Gun2 : Gun
     }
     void Shoot()
     {
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
         {
@@ -49,4 +48,5 @@ public class Gun2 : Gun
             Destroy(impactGO, 2f);
 
         }
+    }
 }

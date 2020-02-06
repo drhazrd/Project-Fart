@@ -23,7 +23,7 @@ public class Gun3 : Gun
     }
     void Shoot()
     {
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
         {
@@ -41,4 +41,5 @@ public class Gun3 : Gun
             Destroy(impactGO, 2f);
 
         }
+    }
 }

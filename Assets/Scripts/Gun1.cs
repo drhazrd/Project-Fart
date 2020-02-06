@@ -6,13 +6,11 @@ public class Gun1 : Gun
 {
     public Camera fpsCam;
     PlayerMotor pMotor;
-<<<<<<< HEAD
     private float nextTimeToFire = 0;
-=======
+
     public int maxAmmo;
     public int currAmmo;
-    private float nextTimeToFire;
->>>>>>> c5cc1d1a613261b6ab30894cf94bfd18390ea3bf
+    //private float nextTimeToFire;
     // Update is called once per frame
     void Start()
     {
@@ -30,7 +28,7 @@ public class Gun1 : Gun
     }
     void Shoot()
     {
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
         {
