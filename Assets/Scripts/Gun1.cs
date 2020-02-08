@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun1 : Gun
 {
@@ -10,6 +11,8 @@ public class Gun1 : Gun
 
     public int maxAmmo;
     public int currAmmo;
+    public Text ammoText;
+    bool isReloading = false;
     //private float nextTimeToFire;
     // Update is called once per frame
     void Start()
@@ -19,6 +22,16 @@ public class Gun1 : Gun
     }
     void Update()
     {
+        ammoText.text = currAmmo.ToString() + " / " + maxAmmo.ToString();
+        if (isReloading)
+        {
+            return;
+        }
+        if (currAmmo<=0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
         if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
@@ -46,5 +59,13 @@ public class Gun1 : Gun
             Destroy(impactGO, 2f);
 
         }
+    }
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        Debug.Log("Reloading...");
+        yield return new WaitForSeconds(reloadTime);
+        currAmmo = maxAmmo;
+        isReloading = false;
     }
 }
