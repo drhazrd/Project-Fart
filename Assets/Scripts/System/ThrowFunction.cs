@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThrowFunction : MonoBehaviour{
-public float throwForce = 40f;
-public GameObject throwPrefab;
+    public float throwForce = 40f;
+    public GameObject throwPrefab;
+    public PlayerMotor playerMotor;
 
-void Update(){
-if (Input.GetButtonDown("Throw")){
-ThrowGrenade();
-}
-}
-ThrowGrenade(){
-Gameobject nade = Intansitate(throwPrefab, tranform.position, transform.rotation);
-Rigidbody rb = nade.GetComponent<Rigidbody>();
-rb.AddForce(transfrom.forward*throwForce, ForceMode.VelocityChange);
-}
+    void Update(){
+        if (Input.GetButtonDown("Throw"+playerMotor.playerNumber)){
+            ThrowGrenade();
+        }
+    }
+    void ThrowGrenade(){
+        GameObject nade = Instantiate(throwPrefab, transform.position, transform.rotation);
+        Rigidbody rb = nade.GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward*throwForce, ForceMode.VelocityChange);
+    }
 }

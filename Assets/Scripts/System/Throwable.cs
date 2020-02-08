@@ -13,21 +13,21 @@ public class Throwable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        countdown = delay;
+        countDown = delay;
     }
 
     // Update is called once per frame
     void Update()
     {
         countDown-=Time.deltaTime;
-        if(countdown <= 0f && hasExploded){
+        if(countDown <= 0f && hasExploded){
             Expolde();
             hasExploded = true;
         }
     }
     void Expolde(){
         Debug.Log("BOOOM!!");
-        Instantiate(explosionFX, transform.position, tranform.rotation);
+        Instantiate(explosionFX, transform.position, transform.rotation);
         Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider nearbyObj in collidersToDestroy)
         {
@@ -38,7 +38,7 @@ public class Throwable : MonoBehaviour
         {
             Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
             if(rb != null){
-                rb.AddExplosionForce(explosionForce, transfor.position, radius);
+                rb.AddExplosionForce(explosionForce, transform.position, radius);
             }
         }
         Destroy(gameObject);
