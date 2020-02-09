@@ -8,16 +8,19 @@ public class Gun1 : Gun
     public Camera fpsCam;
     PlayerMotor pMotor;
     private float nextTimeToFire = 0;
-
+    public Animator anim;
     public int maxAmmo;
     public int currAmmo;
     public Text ammoText;
+    public float reloadTimer = .15f;
+
     bool isReloading = false;
     //private float nextTimeToFire;
     // Update is called once per frame
     void Start()
     {
         pMotor = GetComponentInParent<PlayerMotor>();
+        anim = GetComponentInChildren<Animator>();
         currAmmo = maxAmmo;
     }
     void Update()
@@ -29,7 +32,7 @@ public class Gun1 : Gun
         }
         if (currAmmo<=0)
         {
-            StartCoroutine(Reload());
+            StartCoroutine(Reload(reloadTimer));
             return;
         }
         if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire)
@@ -41,6 +44,7 @@ public class Gun1 : Gun
     }
     void Shoot()
     {
+        anim.SetTrigger("isFiring");
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
@@ -60,11 +64,15 @@ public class Gun1 : Gun
 
         }
     }
-    IEnumerator Reload()
+    IEnumerator Reload(float reloadTime)
     {
+        anim.SetBool("isEmpty",true);
         isReloading = true;
         Debug.Log("Reloading...");
+        anim.SetBool("isEmpty",false);
+        anim.SetBool("isReloading",true);
         yield return new WaitForSeconds(reloadTime);
+        anim.SetBool("isReloading",false);
         currAmmo = maxAmmo;
         isReloading = false;
     }

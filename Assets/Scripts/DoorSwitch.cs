@@ -6,6 +6,7 @@ public class DoorSwitch : MonoBehaviour
 {
     public GameObject instructorText;
     Animator anim;
+    public bool isOpen = false;
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" ||other.tag == "Car")
@@ -16,6 +17,7 @@ public class DoorSwitch : MonoBehaviour
             {
 
                 anim.SetTrigger("OpenClose");
+                instructorText.SetActive(false);
             }
         }
         
