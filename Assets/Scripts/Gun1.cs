@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Gun1 : Gun
 {
@@ -13,7 +14,12 @@ public class Gun1 : Gun
     public int currAmmo;
     public Text ammoText;
     public float reloadTimer = .15f;
+    public float coolDownTimer = .15f;
+    AudioSource mAudio;
+    public AudioClip reloadAudio;
+    public AudioClip fireAudio;
 
+    bool isFiring = false;
     bool isReloading = false;
     //private float nextTimeToFire;
     // Update is called once per frame
@@ -21,6 +27,7 @@ public class Gun1 : Gun
     {
         pMotor = GetComponentInParent<PlayerMotor>();
         anim = GetComponentInChildren<Animator>();
+        mAudio = GetComponent<AudioSource>();
         currAmmo = maxAmmo;
     }
     void Update()
@@ -32,20 +39,27 @@ public class Gun1 : Gun
         }
         if (currAmmo<=0)
         {
-            StartCoroutine(Reload(reloadTimer));
+            StartCoroutine(Reload(reloadTimer, coolDownTimer));
             return;
         }
-        if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire)
+        if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire&&!isFiring)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Debug.Log("Bullet, Bullet, Bullet!");
             Shoot();
+            isFiring = true;
+        }else if (Input.GetAxis("Fire1" + pMotor.playerNumber) < 0.1f)
+        {
+            isFiring = false;
         }
+
     }
     void Shoot()
     {
         anim.SetTrigger("isFiring");
+        currAmmo--;
         muzzleFlash.Play();
+        mAudio.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
         {
@@ -64,14 +78,15 @@ public class Gun1 : Gun
 
         }
     }
-    IEnumerator Reload(float reloadTime)
+    IEnumerator Reload(float reloadTime, float gunCoolDown)
     {
-        anim.SetBool("isEmpty",true);
         isReloading = true;
         Debug.Log("Reloading...");
-        anim.SetBool("isEmpty",false);
+        anim.SetBool("isEmpty", true);
         anim.SetBool("isReloading",true);
         yield return new WaitForSeconds(reloadTime);
+        anim.SetBool("isEmpty", false);
+        yield return new WaitForSeconds(gunCoolDown);
         anim.SetBool("isReloading",false);
         currAmmo = maxAmmo;
         isReloading = false;

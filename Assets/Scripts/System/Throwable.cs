@@ -7,7 +7,7 @@ public class Throwable : MonoBehaviour
     public float delay = 3f;
     public float radius = 3f;
     public float explosionForce = 700f;
-    float countDown;
+    public float countDown;
     bool hasExploded = false;
     public GameObject explosionFX;
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class Throwable : MonoBehaviour
     void Update()
     {
         countDown-=Time.deltaTime;
-        if(countDown <= 0f && hasExploded){
+        if(countDown <= 0f && !hasExploded){
             Expolde();
             hasExploded = true;
         }

@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaopnSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
+    public int selectedWeaponCrosshair = 0;
+
+    public Image crossHairHUD;
+    public Sprite[] crossHair;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +37,7 @@ public class WeaopnSwitching : MonoBehaviour
         {
             SelectedWeapon();
         }
+        crossHairHUD.sprite = crossHair[selectedWeapon];
     }
     void SelectedWeapon() {
         int i = 0;

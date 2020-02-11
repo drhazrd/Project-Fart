@@ -7,8 +7,12 @@ public class ThrowFunction : MonoBehaviour{
     public GameObject throwPrefab;
     public PlayerMotor playerMotor;
 
+    void Start()
+    {
+        playerMotor = GetComponentInParent<PlayerMotor>();
+    }
     void Update(){
-        if (Input.GetButtonDown("Throw"+playerMotor.playerNumber)){
+        if (Input.GetButtonDown("Fire2"+playerMotor.playerNumber)){
             ThrowGrenade();
         }
     }
