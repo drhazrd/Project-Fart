@@ -12,8 +12,9 @@ public class PlayerMotor : MonoBehaviour
     public bool canJump = true;
     public float jumpHeight = 2.0f;
     private bool grounded = false;
-    public bool useController;
+    PlayerStats playerStats;
     public int playerNumber;
+    Vector3 targetVelocity;
 
 
 
@@ -21,6 +22,7 @@ public class PlayerMotor : MonoBehaviour
     {
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = false;
+        playerStats = GetComponentInParent<PlayerStats>();
     }
 
     void FixedUpdate()
@@ -28,8 +30,14 @@ public class PlayerMotor : MonoBehaviour
         if (grounded)
         {
             // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            targetVelocity = new Vector3(Input.GetAxis("ControllerMotor" + playerNumber + "H"), 0, Input.GetAxis("ControllerMotor" + playerNumber + "V"));
+            if (!playerStats.useController)
+            {
+                targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            }
+            else
+            {
+                targetVelocity = new Vector3(Input.GetAxis("ControllerMotor" + playerNumber + "H"), 0, Input.GetAxis("ControllerMotor" + playerNumber + "V"));
+            }
             targetVelocity = transform.TransformDirection(targetVelocity);
             targetVelocity *= speed;
                 
@@ -42,7 +50,7 @@ public class PlayerMotor : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
             // Jump
-            if (canJump && Input.GetButton("Jump"+playerNumber))
+            if (canJump && Input.GetButton("Jump"+playerNumber)||Input.GetKeyDown(KeyCode.Space))
             {
                 GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
             }

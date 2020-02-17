@@ -103,6 +103,8 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   anim: {fileID: 0}
   maxAmmo: 100
+  isAmmoFull: 0
+  heldAmmo: 0
   currAmmo: 0
   ammoText: {fileID: 0}
   reloadTimer: 0.15
@@ -166,6 +168,8 @@ MonoBehaviour:
   fpsCam: {fileID: 5222097195290743077}
   anim: {fileID: 0}
   maxAmmo: 100
+  isAmmoFull: 0
+  heldAmmo: 18
   currAmmo: 0
   ammoText: {fileID: 5222097196081333501}
   reloadTimer: 0.9
@@ -403,6 +407,8 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   anim: {fileID: 0}
   maxAmmo: 100
+  isAmmoFull: 0
+  heldAmmo: 0
   currAmmo: 0
   ammoText: {fileID: 0}
   reloadTimer: 0.15
@@ -545,6 +551,8 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   anim: {fileID: 0}
   maxAmmo: 100
+  isAmmoFull: 0
+  heldAmmo: 0
   currAmmo: 0
   ammoText: {fileID: 0}
   reloadTimer: 0.15
@@ -1060,7 +1068,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   gamepadSensitivity: 100
   playerBody: {fileID: 5222097195559822719}
-  useController: 1
   Player1: 1
   Player2: 0
   Player3: 0
@@ -1331,7 +1338,6 @@ MonoBehaviour:
   maxVelocityChange: 10
   canJump: 1
   jumpHeight: 2
-  useController: 0
   playerNumber: 1
 --- !u!114 &5222097195559822717
 MonoBehaviour:
@@ -1349,6 +1355,9 @@ MonoBehaviour:
   maxHealth: 100
   currentArmor: 0
   maxArmor: 150
+  currScore: 0
+  heldAmmo: 0
+  useController: 0
   healthText: {fileID: 6217868442023978334}
   armorText: {fileID: 2525405489685381117}
   scoreText: {fileID: 4597234639998473491}
@@ -2029,6 +2038,8 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   anim: {fileID: 0}
   maxAmmo: 100
+  isAmmoFull: 0
+  heldAmmo: 0
   currAmmo: 0
   ammoText: {fileID: 0}
   reloadTimer: 0.15
@@ -3125,6 +3136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014014895560996160, guid: c39667103c2425341838596bd45dffd1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c39667103c2425341838596bd45dffd1, type: 3}
