@@ -14,8 +14,10 @@ public class Gun1 : Gun
     [SerializeField]
     private int maxAmmo;
     public bool isAmmoFull = false;
+    public bool isAvailable = false;
     public int heldAmmo;
     public int currAmmo;
+    public int gunDamage;
     public Text ammoText;
     public float reloadTimer = .15f;
     public float coolDownTimer = .15f;
@@ -38,7 +40,7 @@ public class Gun1 : Gun
     void Update()
     {
         heldAmmo = playerStats.heldAmmo;
-        ammoText.text = currAmmo.ToString() + " / " + heldAmmo.ToString();
+        ammoText.text = currAmmo.ToString() + " / " + maxAmmo.ToString();
         if (isReloading)
         {
             return;
@@ -58,7 +60,7 @@ public class Gun1 : Gun
             StartCoroutine(Reload(reloadTimer, coolDownTimer));
             return;
         }
-        if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire&&!isFiring&&currAmmo>=0)
+        if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f) || Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire&&!isFiring&&currAmmo>=0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Debug.Log("Bullet, Bullet, Bullet!");

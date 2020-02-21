@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 { 
     public float speed = 10.0f;
+    public float dashSpeed = 10.0f;
     public float gravity = 10.0f;
     public float maxVelocityChange = 10.0f;
     public bool canJump = true;
@@ -21,7 +22,7 @@ public class PlayerMotor : MonoBehaviour
     void Awake()
     {
         GetComponent<Rigidbody>().freezeRotation = true;
-        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().useGravity = true;
         playerStats = GetComponentInParent<PlayerStats>();
     }
 
@@ -61,14 +62,11 @@ public class PlayerMotor : MonoBehaviour
 
         grounded = false;
         
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (/*Input.GetButtonDown("Dash"+playerNumber)||*/Input.GetKeyDown(KeyCode.Z))
         {
-            _body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
-        }
-        if (Input.GetButtonDown("Dash"))
-        {
-            Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * _body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * _body.drag + 1)) / -Time.deltaTime)));
-            _body.AddForce(dashVelocity, ForceMode.VelocityChange);
+            Debug.Log("Dash!");
+            Vector3 dashVelocity = Vector3.Scale(transform.forward, dashSpeed * new Vector3((Mathf.Log(1f / (Time.deltaTime * GetComponent<Rigidbody>().drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * GetComponent<Rigidbody>().drag + 1)) / -Time.deltaTime)));
+            GetComponent<Rigidbody>().AddForce(dashVelocity, ForceMode.VelocityChange);
         }
     }
 
