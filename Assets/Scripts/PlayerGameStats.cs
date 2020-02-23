@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerGameStats : MonoBehaviour
 {
-    public GameType gType;
+    //public GameType gType;
     public float infectedTimer;
     public Text infectedTimerText;
     public bool infected;

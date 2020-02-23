@@ -7,6 +7,8 @@ TagManager:
   - Door
   - Car
   - HUD
+  - Llama
+  - King Llama
   layers:
   - Default
   - TransparentFX

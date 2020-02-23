@@ -12,8 +12,8 @@ public class PlayerStats : MonoBehaviour
     public int currScore;
     public int heldAmmo;
     public bool useController;
-    public Text healthText;
-    public Text armorText;
+    //public Text healthText;
+    //public Text armorText;
     public Text scoreText;
     public Text grenadesText;
     // Start is called before the first frame update
@@ -26,8 +26,8 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = currentHealth.ToString();
-        armorText.text = currentArmor.ToString();
+        //healthText.text = currentHealth.ToString();
+        //armorText.text = currentArmor.ToString();
         scoreText.text = currScore.ToString();
         grenadesText.text = "n/a";
     }

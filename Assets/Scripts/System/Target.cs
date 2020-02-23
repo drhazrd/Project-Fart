@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
     public int deathHeight = 50;
     void Start()
     {
+
         healthCanvas.gameObject.SetActive(false);
         currentHealth = maxHealth;
         healthBar.SetMaxValue(maxHealth);

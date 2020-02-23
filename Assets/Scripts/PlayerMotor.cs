@@ -16,7 +16,7 @@ public class PlayerMotor : MonoBehaviour
     PlayerStats playerStats;
     public int playerNumber;
     Vector3 targetVelocity;
-    RigidBody playerRB;
+    Rigidbody playerRB;
 
 
     void Awake()
@@ -64,7 +64,7 @@ public class PlayerMotor : MonoBehaviour
 
         grounded = false;
 
-        if (/*Input.GetButtonDown("Dash"+playerNumber)||*/Input.GetKeyDown(KeyCode.Z))
+        if (/*Input.GetButtonDown("Dash"+playerNumber)||*/Input.GetKeyDown(KeyCode.N))
         {
             Debug.Log("Dash!");
             Vector3 dashVelocity = Vector3.Scale(transform.forward, dashSpeed * new Vector3((Mathf.Log(1f / (Time.deltaTime * playerRB.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * playerRB.drag + 1)) / -Time.deltaTime)));
