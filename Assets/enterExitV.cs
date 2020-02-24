@@ -14,7 +14,7 @@ public class enterExitV : MonoBehaviour
     {
         vehicleScript = GetComponent<Vehicle>();
         player = GameObject.FindWithTag("Player");
-        guiObj.SetActive(false);
+        //guiObj.SetActive(false);
     }
 
     // Update is called once per frame

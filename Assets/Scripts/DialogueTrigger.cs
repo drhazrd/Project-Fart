@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag =="Player" && Input.GetButtonDown("Submit1")|| Input.GetButtonDown("Submit2"))
+        if(other.gameObject.tag =="Player" && Input.GetButtonDown("InteractP1") || Input.GetButtonDown("InteractP2"))
         {
             TriggerDialogue();
         }

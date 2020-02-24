@@ -40,7 +40,7 @@ public class Gun1 : Gun
     void Update()
     {
         heldAmmo = playerStats.heldAmmo;
-        ammoText.text = currAmmo.ToString() + " / " + maxAmmo.ToString();
+        ammoText.text = currAmmo.ToString() + " / " + heldAmmo.ToString();
         if (isReloading)
         {
             return;
@@ -84,9 +84,14 @@ public class Gun1 : Gun
         {
             Debug.Log("shoots: " + hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
+            
             if (target != null)
             {
                 target.TakeDamage(gunDamage);
+            }
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(gunDamage);
             }
             if (hit.rigidbody != null)
             {

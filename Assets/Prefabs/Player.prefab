@@ -79,7 +79,7 @@ Transform:
   - {fileID: 7784411771787375705}
   - {fileID: 706294826778902122}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &396816584949935405
 MonoBehaviour:
@@ -319,7 +319,7 @@ Transform:
   - {fileID: 1911031657267669860}
   - {fileID: 7249597924591241137}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4517824584895124540
 MonoBehaviour:
@@ -510,7 +510,7 @@ Transform:
   m_Children:
   - {fileID: 1385688614106514709}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1655375721140297952
 GameObject:
@@ -543,7 +543,7 @@ Transform:
   m_Children:
   - {fileID: 8352527757365926030}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5992718448318607235
 MonoBehaviour:
@@ -5780,7 +5780,7 @@ Transform:
   - {fileID: 9181798625366876950}
   - {fileID: 3299905398368743367}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1982468732054371314
 MonoBehaviour:
@@ -6022,7 +6022,7 @@ Transform:
   - {fileID: 2621491086016338236}
   - {fileID: 7551410053327734700}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2262904886047111850
 MonoBehaviour:
@@ -17325,6 +17325,7 @@ MonoBehaviour:
   currScore: 0
   heldAmmo: 0
   useController: 0
+  noHealth: 0
   scoreText: {fileID: 4597234639998473491}
   grenadesText: {fileID: 7261323533061181409}
 --- !u!114 &2948595269033791961
@@ -17340,7 +17341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8909908241175050216}
-  healthCanvas: {fileID: 0}
+  healthCanvas: {fileID: 5070697431996440776}
   maxHealth: 100
   currentHealth: 0
   deathHeight: 50
@@ -18002,7 +18003,7 @@ Transform:
   - {fileID: 3248693227714863349}
   - {fileID: 2829701111445956685}
   m_Father: {fileID: 2748576393955009172}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6951669070157274098
 MonoBehaviour:
@@ -23567,13 +23568,13 @@ Transform:
   m_LocalPosition: {x: 0.2, y: -0.34000015, z: 0.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8191194955421336628}
   - {fileID: 8661794509840732573}
   - {fileID: 1148337268482461851}
   - {fileID: 6179983781742617665}
   - {fileID: 3401588719903857828}
   - {fileID: 5066795779254374569}
   - {fileID: 7133638545495065604}
+  - {fileID: 8191194955421336628}
   - {fileID: 5990173567258945131}
   m_Father: {fileID: 5222097195290743074}
   m_RootOrder: 1

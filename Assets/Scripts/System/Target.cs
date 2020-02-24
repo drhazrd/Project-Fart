@@ -30,7 +30,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
         }
         else if (currentHealth <= maxHealth)
-        healthCanvas.gameObject.SetActive(true);
+            healthCanvas.gameObject.SetActive(true);
     }
     void Die()
     {

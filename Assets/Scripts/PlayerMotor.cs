@@ -83,4 +83,17 @@ public class PlayerMotor : MonoBehaviour
         // for the character to reach at the apex.
         return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
+    void Die()
+    {
+        StartCoroutine(PlayerDie());
+    }
+    void Respawn()
+    {
+
+    }
+    IEnumerator PlayerDie()
+    {
+        Debug.Log ("Player Respawn");
+        return null;
+    }
 }

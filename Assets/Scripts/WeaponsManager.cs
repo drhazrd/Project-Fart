@@ -61,14 +61,14 @@ public class WeaponsManager : MonoBehaviour
         int i = 0;
         foreach (Transform weapon in transform)
         {
-            if (i == selectedWeapon&& weapon.gameObject.GetComponent<Gun1>().isAvailable)
+            if (i == selectedWeapon&& weapons[i].available)
             {
                 weapon.gameObject.SetActive(true);
             }
-            else if (i == selectedWeapon && weapon.gameObject.GetComponent<Gun1>().isAvailable)
+            else if (i == selectedWeapon && !weapons[i].available)
             {
                 i++;
-            }else
+            }else //if (!(i==selectedWeapon) && !weapons[i].available)
             {
                 weapon.gameObject.SetActive(false);
             }
