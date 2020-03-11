@@ -8,7 +8,7 @@ public class Gun3 : Gun
     public Camera fpsCam;
     PlayerMotor pMotor;
     private float nextTimeToFire = 0;
-
+    public int gunDamage;
     public int maxAmmo;
     public int currAmmo;
     public Text ammoText;

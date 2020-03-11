@@ -5,18 +5,24 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    Respawn respawn;
     public int currentHealth;
     public int maxHealth = 100;
     public int currentArmor;
     public int maxArmor = 150;
-
-    public Text healthText;
-    public Text armorText;
+    public int currScore;
+    public int heldAmmo;
+    public bool useController;
+    public bool noHealth;
+    //public Text healthText;
+    //public Text armorText;
     public Text scoreText;
     public Text grenadesText;
     // Start is called before the first frame update
     void Start()
     {
+        respawn = GetComponent<Respawn>();
+        //noHealth = respawn.isDead = false;
         currentArmor = maxArmor;
         currentHealth = maxHealth;
     }
@@ -24,9 +30,24 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = currentHealth.ToString();
-        armorText.text = currentArmor.ToString();
-        scoreText.text = "n/a";
+        //healthText.text = currentHealth.ToString();
+        //armorText.text = currentArmor.ToString();
+        scoreText.text = currScore.ToString();
         grenadesText.text = "n/a";
+        if (currentHealth <= 0)
+            noHealth = true;
+    }
+    public void TakeDamage(int damage)
+    {
+        if (currentArmor <= 0)
+        {
+            currentHealth -= damage;
+            currentArmor = 0;
+        }
+        else
+        {
+            currentArmor -= damage;
+
+        }
     }
 }

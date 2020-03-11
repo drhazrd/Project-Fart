@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float gunDamage;
     public float gunRange;
     public float impactForce;
     public float fireRate;

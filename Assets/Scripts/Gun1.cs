@@ -8,10 +8,16 @@ public class Gun1 : Gun
 {
     public Camera fpsCam;
     PlayerMotor pMotor;
+    PlayerStats playerStats;
     private float nextTimeToFire = 0;
     public Animator anim;
-    public int maxAmmo;
+    [SerializeField]
+    private int maxAmmo;
+    public bool isAmmoFull = false;
+    public bool isAvailable = false;
+    public int heldAmmo;
     public int currAmmo;
+    public int gunDamage;
     public Text ammoText;
     public float reloadTimer = .15f;
     public float coolDownTimer = .15f;
@@ -26,23 +32,35 @@ public class Gun1 : Gun
     void Start()
     {
         pMotor = GetComponentInParent<PlayerMotor>();
+        playerStats = GetComponentInParent<PlayerStats>();
         anim = GetComponentInChildren<Animator>();
         mAudio = GetComponent<AudioSource>();
-        currAmmo = maxAmmo;
+        currAmmo = heldAmmo;
     }
     void Update()
     {
-        ammoText.text = currAmmo.ToString() + " / " + maxAmmo.ToString();
+        heldAmmo = playerStats.heldAmmo;
+        ammoText.text = currAmmo.ToString() + " / " + heldAmmo.ToString();
         if (isReloading)
         {
             return;
         }
-        if (currAmmo<=0)
+        if (heldAmmo >= maxAmmo)
+        {
+            heldAmmo = maxAmmo;
+            isAmmoFull=true;
+        }
+        else
+        {
+            isAmmoFull=false;
+
+        }
+        if (currAmmo<=0 && playerStats.heldAmmo>0)
         {
             StartCoroutine(Reload(reloadTimer, coolDownTimer));
             return;
         }
-        if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f)&& Time.time >= nextTimeToFire&&!isFiring)
+        if ((Input.GetAxis("Fire1"+pMotor.playerNumber) > 0.1f) || Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire&&!isFiring&&currAmmo>=0)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Debug.Log("Bullet, Bullet, Bullet!");
@@ -57,7 +75,8 @@ public class Gun1 : Gun
     void Shoot()
     {
         anim.SetTrigger("isFiring");
-        currAmmo--;
+        if(currAmmo>0)
+            currAmmo--;
         muzzleFlash.Play();
         mAudio.Play();
         RaycastHit hit;
@@ -65,9 +84,14 @@ public class Gun1 : Gun
         {
             Debug.Log("shoots: " + hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
+            
             if (target != null)
             {
                 target.TakeDamage(gunDamage);
+            }
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(gunDamage);
             }
             if (hit.rigidbody != null)
             {
@@ -89,6 +113,7 @@ public class Gun1 : Gun
         yield return new WaitForSeconds(gunCoolDown);
         anim.SetBool("isReloading",false);
         currAmmo = maxAmmo;
+        playerStats.heldAmmo=playerStats.heldAmmo - maxAmmo;
         isReloading = false;
     }
 }

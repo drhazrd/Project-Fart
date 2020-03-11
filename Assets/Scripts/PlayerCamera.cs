@@ -8,7 +8,7 @@ public class PlayerCamera : MonoBehaviour
     public float gamepadSensitivity = 100f;
     public Transform playerBody;
     float xRotation = 0f;
-    public bool useController;
+    PlayerStats playerStats;
     public bool Player1, Player2, Player3, Player4;
     float camMoveX;
     float camMoveY;
@@ -17,6 +17,7 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        playerStats = GetComponentInParent<PlayerStats>();
 
         if (Player1)
             playerNum = 1;
@@ -34,7 +35,7 @@ public class PlayerCamera : MonoBehaviour
     {
         SetController();
          
-        if (!useController)
+        if (!playerStats.useController)
         {
             camMoveX = Input.GetAxis("MouseX") * mouseSensitivity * Time.deltaTime;
             camMoveY = Input.GetAxis("MouseY") * mouseSensitivity * Time.deltaTime;
