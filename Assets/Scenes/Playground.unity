@@ -18659,6 +18659,11 @@ PrefabInstance:
       propertyPath: weapons.Array.data[5].available
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4517824584895124540, guid: 79c99412acb57304f8a8e4f71103059c,
+        type: 3}
+      propertyPath: fireRate
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79c99412acb57304f8a8e4f71103059c, type: 3}
 --- !u!1001 &7048108406375315515

@@ -9,12 +9,13 @@ public class Gun1 : Gun
     public Camera fpsCam;
     PlayerMotor pMotor;
     PlayerStats playerStats;
-    private float nextTimeToFire = 0;
+    [SerializeField]
+    float nextTimeToFire = 0;
     public Animator anim;
     [SerializeField]
     private int maxAmmo;
     public bool isAmmoFull = false;
-    public bool isAvailable = false;
+    //public bool isAvailable = false;
     public int heldAmmo;
     public int currAmmo;
     public int gunDamage;
