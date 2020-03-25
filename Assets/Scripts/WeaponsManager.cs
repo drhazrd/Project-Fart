@@ -37,9 +37,12 @@ public class WeaponsManager : MonoBehaviour
 
         int previousSelectWeapon = selectedWeapon;
 
+        if (Input.GetKeyDown(KeyCode.L))
+
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (selectedWeapon >= transform.childCount - 1)
+            if (selectedWeapon >= weapons.Length - 1)
                 selectedWeapon = 0;
             else
                 selectedWeapon++;
@@ -47,13 +50,13 @@ public class WeaponsManager : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             if (selectedWeapon <= 0)
-                selectedWeapon = transform.childCount - 1;
+                selectedWeapon = weapons.Length - 1;
             else
                 selectedWeapon--;
         }
         if (previousSelectWeapon != selectedWeapon)
         {
-            SelectedWeapon();
+            SelectedWeaponRedux();
         }
         crossHairHUD.sprite = crossHair[selectedWeapon];
     }
@@ -63,7 +66,8 @@ public class WeaponsManager : MonoBehaviour
         {
             if (i == selectedWeapon&& weapons[i].available)
             {
-                weapon.gameObject.SetActive(true);
+                weapon
+                    .gameObject.SetActive(true);
             }
             else if (i == selectedWeapon && !weapons[i].available)
             {
@@ -73,6 +77,25 @@ public class WeaponsManager : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             }
             i++;
+        }
+
+    }
+
+    void SelectedWeaponRedux() {
+        int i = 0;
+        foreach (WeaponSlot gun in weapons)
+        {
+            i++;
+            if (i == selectedWeapon&& weapons[selectedWeapon].available)
+            {
+                gun.weapon.gameObject.SetActive(true);
+            }
+            else if (i == selectedWeapon && !weapons[selectedWeapon].available)
+            {
+                gun.weapon.gameObject.SetActive(false);
+                i++;
+            //}else if (!(i==selectedWeapon) && !weapons[i].available){
+            }
         }
 
     }
