@@ -24,7 +24,7 @@ public class Respawn : MonoBehaviour
             StartCoroutine(Revive());
         }
     }
-    IEnumerator Revive()
+    public IEnumerator Revive()
     {
         player.GetComponent<PlayerMotor>().enabled = false;
         isDead = true;

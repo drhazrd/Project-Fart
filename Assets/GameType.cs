@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace ProjectFart {
+    public enum Gametype
+    {
+        Default,
+        Infected,
+        Deathmatch,
+        Arcade
+    }
     public class GameType : Singleton<GameType>
     {
         //GameManager gmInfo;
-        public bool gtInfected, gtDeathmatch, gtArcade;
+        public Gametype gType;
+        public bool isMissionActive;
         public float _inGameTimer;
         public PlayerStats stats;
         DialogueManager dialogueManager;
@@ -17,7 +25,7 @@ namespace ProjectFart {
         {
             //stats = FindObjectOfType<PlayerStats>();
             //gmInfo = GetComponent<GameManager>();
-            if (gtInfected)
+            /*if (gtInfected)
             {
                 StartInfection();
             }
@@ -28,21 +36,28 @@ namespace ProjectFart {
             else if (gtArcade)
             {
                 StartArcade();
-            }
+            }*/
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (maxCollection<= 0)
+            if (maxCollection == 0 && isMissionActive)
             {
                 GameObject prize = GameObject.FindGameObjectWithTag("King Llama");
-                prize.SetActive(true);
+                if (prize != null)
+                {
+                    prize.SetActive(true);
+                }
+            }
+            else
+            {
+                return;
             }
         }
         public void StartDeathMatch()
         {
-            gtDeathmatch = true;
+            //gtDeathmatch = true;
             SceneManager.LoadScene("DeathMatch");
         }
         public void StartArcade()
@@ -52,7 +67,7 @@ namespace ProjectFart {
         }
         public void StartInfection()
         {
-            gtInfected = true;
+            //gtInfected = true;
             SceneManager.LoadScene("Infected");
         }
 
