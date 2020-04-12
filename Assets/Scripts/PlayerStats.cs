@@ -12,7 +12,6 @@ public class PlayerStats : MonoBehaviour
     public int maxArmor = 150;
     public int currScore;
     public int heldAmmo;
-    public bool useController;
     public bool noHealth;
     //public Text healthText;
     //public Text armorText;

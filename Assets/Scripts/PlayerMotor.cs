@@ -13,7 +13,7 @@ public class PlayerMotor : MonoBehaviour
     public bool canJump = true;
     public float jumpHeight = 2.0f;
     private bool grounded = false;
-    PlayerStats playerStats;
+    DetechController detechController;
     public int playerNumber;
     Vector3 targetVelocity;
     Rigidbody playerRB;
@@ -25,7 +25,7 @@ public class PlayerMotor : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         playerRB.freezeRotation = true;
         playerRB.useGravity = true;
-        playerStats = GetComponentInParent<PlayerStats>();
+        detechController = GetComponentInParent<DetechController>();
     }
 
     void FixedUpdate()
@@ -33,7 +33,7 @@ public class PlayerMotor : MonoBehaviour
         if (grounded)
         {
             // Calculate how fast we should be moving
-            if (!playerStats.useController)
+            if (!detechController.useController)
             {
                 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             }

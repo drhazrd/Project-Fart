@@ -26,8 +26,8 @@ public class Target : MonoBehaviour
         healthBar.SetValue(currentHealth);
         if (currentHealth <= 0)
         {
-            //Die();
-            Destroy(gameObject);
+            Die();
+          
         }
         else if (currentHealth <= maxHealth)
             healthCanvas.gameObject.SetActive(true);
