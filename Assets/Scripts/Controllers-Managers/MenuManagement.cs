@@ -10,7 +10,10 @@ public class MenuManagement : MonoBehaviour
 {
     Resolution[] resolutions;
     public Dropdown resDropdown;
-
+    private void Awake()
+    {
+        FindObjectOfType<AudioManager>().Play("MainMenuTheme");
+    }
     void Start()
     {
         resolutions = Screen.resolutions;

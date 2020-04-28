@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 12f57a09ae8c8ff49a11f8f666d2a3e8
+  - enabled: 1
+    path: Assets/Scenes/TrainingGrounds.unity
+    guid: d56ca7661b2e1ed47b0efecafab9a07b
+  - enabled: 1
+    path: Assets/Scenes/APEX.unity
+    guid: 8199775c222f89542af3d4692aa7b6ad
+  - enabled: 1
+    path: Assets/Scenes/BattleRoyale.unity
+    guid: 223676b73d6936f4d8fb4c195ea9af34
+  - enabled: 1
+    path: Assets/Scenes/FFA.unity
+    guid: 2a81c46b761e9e144b33b468fb581650
+  - enabled: 1
+    path: Assets/Scenes/Sumo.unity
+    guid: 659f98158b6a5e343b461f7d8d42312d
   m_configObjects: {}
