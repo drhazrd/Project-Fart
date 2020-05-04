@@ -10,9 +10,13 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 100;
     public int currentArmor;
     public int maxArmor = 150;
+    public int currentExperience;
+    public int currentLevel;
+    public int maxLevel = 150;
     public int currScore;
     public int heldAmmo;
     public bool noHealth;
+    public Quest quest;
     //public Text healthText;
     //public Text armorText;
     public Text scoreText;
