@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    ThorQuestSystem thor;
     public Health healthBar;
     public GameObject healthCanvas;
     public int maxHealth = 100;
@@ -9,7 +10,7 @@ public class Target : MonoBehaviour
     public int deathHeight = 50;
     void Start()
     {
-
+        thor = FindObjectOfType<ThorQuestSystem>();
         healthCanvas.gameObject.SetActive(false);
         currentHealth = maxHealth;
         healthBar.SetMaxValue(maxHealth);
@@ -35,5 +36,6 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        thor.questCurrentAmount--;
     }
 }

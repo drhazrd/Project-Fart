@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     Respawn respawn;
+    ThorQuestSystem thor;
     public int currentHealth;
     public int maxHealth = 100;
     public int currentArmor;
@@ -17,13 +18,17 @@ public class PlayerStats : MonoBehaviour
     public int heldAmmo;
     public bool noHealth;
     public Quest quest;
-    //public Text healthText;
-    //public Text armorText;
+    public Text missionText;
+    public bool isQuesting;
     public Text scoreText;
     public Text grenadesText;
+    public int questCurrentAmount;
+    public int questRequiredAmount;
+
     // Start is called before the first frame update
     void Start()
     {
+        thor = FindObjectOfType<ThorQuestSystem>();
         respawn = GetComponent<Respawn>();
         //noHealth = respawn.isDead = false;
         currentArmor = maxArmor;
@@ -34,7 +39,16 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         //healthText.text = currentHealth.ToString();
-        //armorText.text = currentArmor.ToString();
+        questCurrentAmount = thor.questCurrentAmount;
+        questRequiredAmount = quest.goal.requiredAmount;
+        if (quest.isActive)
+        {
+            missionText.text = quest.questTitle + " " + questCurrentAmount.ToString() + " / " + questRequiredAmount.ToString();
+        }
+        else
+        {
+            missionText.text = "No Missions Available, Have Fun!";
+        }
         scoreText.text = currScore.ToString();
         grenadesText.text = "n/a";
         if (currentHealth <= 0)
